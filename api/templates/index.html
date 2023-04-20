@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>QUIZ</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="icon" href="favicon.png">
+</head>
+
+<body>
+	<h1>QUIZ | 2023</h1>
+	<main>
+		<form>
+			{% for q in qs %}
+			<div class="question">
+				<div>{{ q.question }}</div>
+				<div class="options">
+					<label for="{{ q.option1.oid }}" class="option">{{ q.option1.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option1.oid }}"/>
+					<label for="{{ q.option2.oid }}" class="option">{{ q.option2.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option2.oid }}"/>
+					<label for="{{ q.option3.oid }}" class="option">{{ q.option3.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option3.oid }}"/>
+					<label for="{{ q.option4.oid }}" class="option">{{ q.option4.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option4.oid }}"/>
+				</div>
+				<div class="answer">
+					{{ q.answer }}
+				</div>
+			</div>
+
+			{% endfor %}
+		</form>
+	</main>
+	<script src="/js/app.js"></script>
+</body>
+
+</html>
