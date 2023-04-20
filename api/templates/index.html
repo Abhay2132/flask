@@ -13,22 +13,23 @@
 <body>
 	<h1>QUIZ | 2023</h1>
 	<main>
-		<form>
+		<form onsubmit="return false">
 			{% for q in qs %}
 			<div class="question">
 				<div>{{ q.question }}</div>
 				<div class="options">
-					<label for="{{ q.option1.oid }}" class="option">{{ q.option1.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option1.oid }}"/>
-					<label for="{{ q.option2.oid }}" class="option">{{ q.option2.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option2.oid }}"/>
-					<label for="{{ q.option3.oid }}" class="option">{{ q.option3.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option3.oid }}"/>
-					<label for="{{ q.option4.oid }}" class="option">{{ q.option4.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option4.oid }}"/>
+					<div class="option"><label for="{{ q.option1.oid }}">{{ q.option1.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option1.oid }}"/></div>
+					<div class="option"><label for="{{ q.option2.oid }}">{{ q.option2.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option2.oid }}"/></div>
+					<div class="option"><label for="{{ q.option3.oid }}">{{ q.option3.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option3.oid }}"/></div>
+					<div class="option"><label for="{{ q.option4.oid }}">{{ q.option4.text }}</label> <input type="radio" name="{{ q.qid }}" id = "{{ q.option4.oid }}"/></div>
 				</div>
 				<div class="answer">
-					{{ q.answer }}
+					Answer : {{ q.answer }}
 				</div>
 			</div>
 
 			{% endfor %}
+			<button >Submit</button>
 		</form>
 	</main>
 	<script src="/js/app.js"></script>

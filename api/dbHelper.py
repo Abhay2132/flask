@@ -1,5 +1,6 @@
 import psycopg2
 import os
+from threading import Timer
 
 db_str = "postgres://szrufkxz:IVMZS-UXd1LGHFR8I1PzcrsfwPORnXYf@horton.db.elephantsql.com/szrufkxz"
 conn = False #psycopg2.connect(db_str)
@@ -8,16 +9,23 @@ cur = False #conn.cursor()
 def closeConn ():
 	global conn
 	global cur
+	if not conn :
+		return
 	cur.close()
 	conn.close()
 	cur = False
 	conn = False
+	print("db conn closed !")
 
 def connect ():
 	global conn
 	global cur
 	conn = psycopg2.connect(db_str)
 	cur = conn.cursor()
+
+	# auto close connection after 10 minutes
+	t1 = Timer(600, closeConn)
+	t1.start()
 
 def parseOptions (opts, qid):
 	# print(opts)
