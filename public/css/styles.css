@@ -1,5 +1,5 @@
 body {
-	height: 100%;
+	min-height: 100vh;
 	margin: 0;
 	position: relative;
 	font-family: sans;
@@ -14,13 +14,18 @@ nav{
 	position: relative;
 }
 
+nav > div {
+	position: relative;
+	width: min(100%, 400px);
+}
+
 #main-heading {
 	margin: 0;
 	padding: 10px 30px;
 	font-size: 2rem;
 }
 
-nav > small {
+nav  small {
 	display: block;
 	text-align: right;
 	padding: 5px 30px;
@@ -29,11 +34,16 @@ nav > small {
 	right:0;
 }
 
-main {
+main , nav{
 	display: flex;
 	justify-content: center;
 	align-center: center;
-	margin-bottom: 40px;
+}
+
+main{
+/*	margin-bottom: 40px;*/
+/*	min-height: calc(100vh - 50px);*/
+	padding-bottom: 40px;
 }
 
 form {
@@ -110,7 +120,7 @@ button:focus {
 }
 
 footer{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	background: #333;
 	color: #eee;
