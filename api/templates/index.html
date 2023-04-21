@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
 	<h1>QUIZ | 2023</h1>
 	<main>
 		<form onsubmit="return false">
-			{% for q in qs %}
+			{% for q in qs %} 
 			<div class="question">
 				<div>{{ q.question }}</div>
 				<div class="options">
@@ -35,4 +35,48 @@
 	<script src="/js/app.js"></script>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="icon" href="favicon.png">
+  <meta name="theme-color" content="#3f3f3f">
+</head>
+<body>
+  <nav>
+    <h1 id="main-heading">Quiz</h1>
+    <small>by Nitin Rawat</small>
+  </nav>
+
+  <main>
+    <form onsubmit="return false">
+      {% for q in qs %} 
+      <div class="question">
+        <div class="question-text"> {{ q.question }} </div>
+        <div class="options">
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "{{ q.option1.oid }}"/><label for="{{ q.option1.oid }}">{{ q.option1.text }}</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "{{ q.option2.oid }}"/><label for="{{ q.option2.oid }}">{{ q.option2.text }}</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "{{ q.option3.oid }}"/><label for="{{ q.option3.oid }}">{{ q.option3.text }}</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "{{ q.option4.oid }}"/><label for="{{ q.option4.oid }}">{{ q.option4.text }}</label></div>
+        </div>
+        <!-- <div class="answer">Answer : All</div> -->
+      </div>
+      {% endfor %}
+      
+
+      <button >Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <small>© <script>document.write(new Date().getFullYear())</script> | All Rights Reserved.</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="icon" href="favicon.png">
+  <meta name="theme-color" content="#3f3f3f">
+</head>
+<body>
+  <nav>
+    <h1 id="main-heading">Quiz</h1>
+    <small>by Nitin Rawat</small>
+  </nav>
+
+  <main>
+    <form onsubmit="return false">
+      <div class="question">
+        <div class="question-text"> What is my Name </div>
+        <div class="options">
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "o1"/><label for="o1">Abhay</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "o2"/><label for="o2">Abhay</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "o3"/><label for="o3">Abhay</label> </div>
+          <div class="option"><input type="radio" name="{{ q.qid }}" id = "o4"/><label for="o4">Abhay</label></div>
+        </div>
+        <!-- <div class="answer">Answer : All</div> -->
+      </div>
+      
+
+      <button >Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <small>© <script>document.write(new Date().getFullYear())</script> | All Rights Reserved.</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
